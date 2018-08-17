@@ -1,4 +1,4 @@
-const regex = /!roll\s*(?<count>\d*)(d(?<sides>\d+))?(h(?<hunger>\d+))?/gi
+const regex = /!v5dice\s*(?<count>\d*)(d(?<sides>\d+))?(h(?<hunger>\d+))?/gi
 
 export const rollDie = sides => Math.floor(Math.random() * sides) + 1
 

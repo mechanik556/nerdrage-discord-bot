@@ -2,12 +2,12 @@ import Discord from 'discord.js'
 import chalk from 'chalk'
 import { argv } from 'yargs'
 
-import roll from './commands/roll'
+import v5dice from './commands/v5dice'
 
 const client = new Discord.Client()
 
 const commands = [
-  roll,
+  v5dice,
 ]
 
 client.on('ready', () => {

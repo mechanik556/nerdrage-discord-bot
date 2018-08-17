@@ -1,4 +1,4 @@
-import roll, { formatMessage, interpret } from './roll'
+import { formatMessage, interpret } from './v5dice'
 
 describe('!roll', () => {
   describe('interpret', () => {
