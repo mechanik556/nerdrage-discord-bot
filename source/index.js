@@ -2,11 +2,15 @@ import Discord from 'discord.js'
 import chalk from 'chalk'
 import { argv } from 'yargs'
 
+import chop from './commands/chop'
+import chops from './commands/chops'
 import v5dice from './commands/v5dice'
 
 const client = new Discord.Client()
 
 const commands = [
+  chop,
+  chops,
   v5dice,
 ]
 
