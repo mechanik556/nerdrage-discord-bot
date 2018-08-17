@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`!roll formatMessage displays correctly in each scenario 1`] = `
+"\`\`\`css
+😬 [Messy Critical] (6 total successes, 2 crits)
+   #normal: 8, 4, [10] | [hunger]: 6, [10]
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 2`] = `
+"\`\`\`css
+👊🏼 Critical Success (6 total successes, 2 crits)
+   #normal: 4, [10], [10] | [hunger]: 8, 6
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 3`] = `
+"\`\`\`css
+👊🏼 Critical Success (6 total successes, 2 crits)
+   #normal: 8, 6, 4, [10], [10]
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 4`] = `
+"\`\`\`css
+👍🏼 Success (3 total successes)
+   #normal: 9, 4 | [hunger]: 8, 6
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 5`] = `
+"\`\`\`css
+👍🏼 Success (3 total successes)
+   #normal: 9, 8, 6, 4
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 6`] = `
+"\`\`\`css
+👎🏼 Failure (0 total successes)
+   #normal: 5 | [hunger]: 3
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 7`] = `
+"\`\`\`css
+👎🏼 Failure (0 total successes)
+   #normal: 5, 3
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 8`] = `
+"\`\`\`css
+😈 [Bestial Failure] (0 total successes, 1 bestiality)
+   #normal: 2 | [hunger]: 1
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 9`] = `
+"\`\`\`css
+👎🏼 Failure (0 total successes)
+   #normal: 2, 1
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 10`] = `
+"\`\`\`css
+😈 [Bestial Failure] (0 total successes, 2 bestiality)
+   #normal: none | [hunger]: 1, 1
+\`\`\`"
+`;
+
+exports[`!roll interpret calculates bestial failure 1`] = `
+Object {
+  "allDice": Array [
+    1,
+    1,
+  ],
+  "bestiality": 2,
+  "criticality": 0,
+  "hungerDice": Array [
+    1,
+    1,
+  ],
+  "isBestialFailure": true,
+  "isCritical": false,
+  "isMessyCritical": false,
+  "isSuccess": false,
+  "messiness": 0,
+  "normalDice": Array [],
+  "successes": 0,
+}
+`;
+
+exports[`!roll interpret calculates bestial failure 2`] = `
+Object {
+  "allDice": Array [
+    1,
+    1,
+  ],
+  "bestiality": 1,
+  "criticality": 0,
+  "hungerDice": Array [
+    1,
+  ],
+  "isBestialFailure": true,
+  "isCritical": false,
+  "isMessyCritical": false,
+  "isSuccess": false,
+  "messiness": 0,
+  "normalDice": Array [
+    1,
+  ],
+  "successes": 0,
+}
+`;
+
+exports[`!roll interpret calculates bestial failure 3`] = `
+Object {
+  "allDice": Array [
+    1,
+    1,
+  ],
+  "bestiality": 0,
+  "criticality": 0,
+  "hungerDice": Array [],
+  "isBestialFailure": false,
+  "isCritical": false,
+  "isMessyCritical": false,
+  "isSuccess": false,
+  "messiness": 0,
+  "normalDice": Array [
+    1,
+    1,
+  ],
+  "successes": 0,
+}
+`;
+
+exports[`!roll interpret calculates criticals 1`] = `
+Object {
+  "allDice": Array [
+    10,
+  ],
+  "bestiality": 0,
+  "criticality": 1,
+  "hungerDice": Array [],
+  "isBestialFailure": false,
+  "isCritical": false,
+  "isMessyCritical": false,
+  "isSuccess": true,
+  "messiness": 0,
+  "normalDice": Array [
+    10,
+  ],
+  "successes": 1,
+}
+`;
+
+exports[`!roll interpret calculates criticals 2`] = `
+Object {
+  "allDice": Array [
+    10,
+    10,
+  ],
+  "bestiality": 0,
+  "criticality": 2,
+  "hungerDice": Array [],
+  "isBestialFailure": false,
+  "isCritical": true,
+  "isMessyCritical": false,
+  "isSuccess": true,
+  "messiness": 0,
+  "normalDice": Array [
+    10,
+    10,
+  ],
+  "successes": 4,
+}
+`;
+
+exports[`!roll interpret calculates messy critical 1`] = `
+Object {
+  "allDice": Array [
+    10,
+    10,
+  ],
+  "bestiality": 0,
+  "criticality": 2,
+  "hungerDice": Array [
+    10,
+    10,
+  ],
+  "isBestialFailure": false,
+  "isCritical": true,
+  "isMessyCritical": true,
+  "isSuccess": true,
+  "messiness": 2,
+  "normalDice": Array [],
+  "successes": 4,
+}
+`;
+
+exports[`!roll interpret calculates messy critical 2`] = `
+Object {
+  "allDice": Array [
+    10,
+    10,
+  ],
+  "bestiality": 0,
+  "criticality": 2,
+  "hungerDice": Array [
+    10,
+  ],
+  "isBestialFailure": false,
+  "isCritical": true,
+  "isMessyCritical": true,
+  "isSuccess": true,
+  "messiness": 1,
+  "normalDice": Array [
+    10,
+  ],
+  "successes": 4,
+}
+`;
+
+exports[`!roll interpret calculates messy critical 3`] = `
+Object {
+  "allDice": Array [
+    10,
+    10,
+  ],
+  "bestiality": 0,
+  "criticality": 2,
+  "hungerDice": Array [],
+  "isBestialFailure": false,
+  "isCritical": true,
+  "isMessyCritical": false,
+  "isSuccess": true,
+  "messiness": 0,
+  "normalDice": Array [
+    10,
+    10,
+  ],
+  "successes": 4,
+}
+`;
