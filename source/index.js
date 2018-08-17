@@ -2,24 +2,24 @@ import Discord from 'discord.js'
 import chalk from 'chalk'
 import { argv } from 'yargs'
 
-const client = new Discord.Client();
+import roll from './commands/roll'
+
+const client = new Discord.Client()
 
 const commands = [
-  require('./commands/roll').default,
+  roll,
 ]
 
 client.on('ready', () => {
-	console.log(`Logged in as ${client.user.tag}!`)
+  console.log(`Logged in as ${client.user.tag}!`)
 })
 
-client.on('message', msg => {
-  commands.forEach(cmd => {
-    const match = msg.content.match(cmd.regex)
-    if (match !== null) {
-      match.forEach(params => {
-        const response = cmd.handler(params)
-        if (response) msg.reply(response)
-      })
+client.on('message', (msg) => {
+  commands.forEach((cmd) => {
+    const matches = msg.content.match(cmd.regex)
+    if (matches !== null) {
+      const replies = matches.map(match => cmd.handler(match)).filter(Boolean)
+      if (replies.length) msg.reply(replies.join(''))
     }
   })
 })
@@ -32,4 +32,3 @@ if (argv.token) {
      >> ${chalk.green('yarn start --token=')}${chalk.yellow('YOUR_TOKEN_HERE')}
   `)
 }
-

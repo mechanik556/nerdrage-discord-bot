@@ -1,5 +1,3 @@
-import { min } from "rxjs/operators";
-
 const regex = /!roll\s*(?<count>\d*)(d(?<sides>\d+))?(h(?<hunger>\d+))?/gi
 
 export const rollDie = sides => Math.floor(Math.random() * sides) + 1
@@ -38,11 +36,9 @@ export function interpret(dieRolls, { hunger = 0 } = {}) {
   }
 }
 
-const renderNumberArray = array => {
-  return array.length
-    ? array.sort().reverse().map(n => n === 10 ? '[10]' : n).join(', ')
-    : 'none'
-}
+const renderNumberArray = array => (array.length
+  ? array.sort().reverse().map(n => (n === 10 ? '[10]' : n)).join(', ')
+  : 'none')
 
 export function formatMessage(results) {
   let emoji = '👎🏼'
@@ -68,7 +64,7 @@ export function formatMessage(results) {
     `${results.successes} total successes`,
     results.isCritical && `, ${results.criticality} crits`,
     results.isBestialFailure > 0 && `, ${results.bestiality} bestiality`,
-    `)\n   `,
+    ')\n   ',
     `#normal: ${renderNumberArray(results.normalDice)}`,
     results.hungerDice.length > 0 && ` | [hunger]: ${renderNumberArray(results.hungerDice)}`,
     '\n```',
@@ -79,16 +75,17 @@ export default {
   name: 'roll',
   regex,
   handler(command) {
+    regex.lastIndex = 0
     const parts = regex.exec(command)
-    if (!parts) return
+    if (!parts) return undefined
 
     const settings = {
-      count: parseInt(parts.groups.count, 10) || 1,
-      sides: parseInt(parts.groups.sides, 10) || 10,
+      count:  parseInt(parts.groups.count, 10) || 1,
+      sides:  parseInt(parts.groups.sides, 10) || 10,
       hunger: parseInt(parts.groups.hunger, 10) || 0,
     }
     const dieRolls = [...new Array(settings.count)].map(() => rollDie(10))
 
     return formatMessage(interpret(dieRolls, settings))
-  }
+  },
 }
