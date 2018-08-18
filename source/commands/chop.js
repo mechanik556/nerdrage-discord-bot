@@ -34,9 +34,9 @@ export const chop = (yours, theirs) => ({
 
 export const randomChop = () => VALID[Math.floor(Math.random() * 3) + 1]
 
-export const formatMessage = ({ yourEmoji, theirEmoji, result }) => [
+export const formatMessage = ({ yours, yourEmoji, theirs, theirEmoji, result }) => [
   '```css\n',
-  `Your ${yourEmoji} vs. their ${theirEmoji} = you ${result}!`,
+  `Your #${yours} ${yourEmoji} vs. their #${theirs} ${theirEmoji} = you ${result}!`,
   '\n```',
 ].filter(Boolean).join('')
 
@@ -48,7 +48,7 @@ export default {
     const parts = this.regex.exec(command)
     if (!parts) return undefined
 
-    const which = SHORTHAND[parts.groups.which] || parts.groups.which || randomChop()
+    const which = (SHORTHAND[parts.groups.which] || parts.groups.which || randomChop()).toLowerCase()
 
     if (!SCENARIOS[which]) {
       return [
