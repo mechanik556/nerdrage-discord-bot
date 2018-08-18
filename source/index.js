@@ -28,8 +28,12 @@ client.on('message', (msg) => {
   })
 })
 
-if (argv.token) {
-  client.login(argv.token)
+const TOKEN = process.env.TOKEN || argv.token
+
+if (TOKEN) {
+  client.login(TOKEN).catch((reason) => {
+    console.log(reason)
+  })
 } else {
   console.error(`
     ${chalk.red('You must specify a valid token. Try again with:')}
