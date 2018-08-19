@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`!roll formatMessage displays correctly in each scenario 1`] = `
+"\`\`\`css
+You rolled 4d10's -> 🎲[8, 6, 5, 1] + 💥[none]
+ -> [1] x #successes { @ 8 difficulty }
+ -> [1] x #ones
+ -> [0] x #10s
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 2`] = `
+"\`\`\`css
+You rolled 4d8's -> 🎲[8, 5, 4, 4] + 💥[none]
+ -> [1] x #successes { @ 6 difficulty }
+ -> [0] x #ones
+ -> [1] x #8s
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 3`] = `
+"\`\`\`css
+You rolled 7d10's -> 🎲[10, 10, 9, 8, 7, 6, 5] + 💥[none]
+ -> [4] x #successes { @ 8 difficulty }
+ -> [0] x #ones
+ -> [2] x #10s
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 4`] = `
+"\`\`\`css
+You rolled 9d10's -> 🎲[10, 9, 8, 8, 7, 6, 5, 4, 1] + 💥[10]
+ -> [5] x #successes { @ 8 difficulty }
+ -> [1] x #ones
+ -> [2] x #10s
+\`\`\`"
+`;
+
+exports[`!roll formatMessage displays correctly in each scenario 5`] = `
+"\`\`\`css
+You rolled 5d10's -> 🎲[10, 10, 9, 6, 5] + 💥[10, 8, 8]
+ -> [6] x #successes { @ 8 difficulty }
+ -> [0] x #ones
+ -> [3] x #10s
+\`\`\`"
+`;
