@@ -4,14 +4,16 @@ import { argv } from 'yargs'
 
 import chop from './commands/chop'
 import chops from './commands/chops'
-import v5dice from './commands/v5dice'
+import roll from './commands/roll'
+import rollv5 from './commands/roll-v5'
 
 const client = new Discord.Client()
 
 const commands = [
   chop,
   chops,
-  v5dice,
+  roll,
+  rollv5,
 ]
 
 client.on('ready', () => {
