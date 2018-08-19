@@ -1,7 +1,7 @@
 import chop, { SHORTHAND } from './chop'
 
 export default {
-  name:  '!chops',
+  name: '!chops',
   regex: /!chops(?:\s?(r(?:ock)?|p(?:aper)?|s(?:cissors)?|b(?:omb)?)(?:\s+|$))*/gi,
   handler(command) {
     this.regex.lastIndex = 0

@@ -1,31 +1,31 @@
 const VALID = ['bomb', 'paper', 'rock', 'scissors']
 const EMOJIS = {
-  bomb:     '💣',
-  paper:    '✋🏼',
-  rock:     '👊🏼',
+  bomb: '💣',
+  paper: '✋🏼',
+  rock: '👊🏼',
   scissors: '✌️🏼',
 }
 
 const SCENARIOS = {
-  bomb:     { paper: 'win', rock: 'win', scissors: '[lose]' },
-  paper:    { bomb: '[lose]', rock: 'win', scissors: '[lose]' },
-  rock:     { bomb: '[lose]', paper: '[lose]', scissors: 'win' },
+  bomb: { paper: 'win', rock: 'win', scissors: '[lose]' },
+  paper: { bomb: '[lose]', rock: 'win', scissors: '[lose]' },
+  rock: { bomb: '[lose]', paper: '[lose]', scissors: 'win' },
   scissors: { bomb: 'win', paper: 'win', rock: '[lose]' },
 }
 
 export const SHORTHAND = {
-  '✋🏼':  'paper',
+  '✋🏼': 'paper',
   '✌️🏼': 'scissors',
   '👊🏼': 'rock',
-  '💣':   'bomb',
-  b:      'bomb',
-  p:      'paper',
-  r:      'rock',
-  s:      'scissors',
+  '💣': 'bomb',
+  b: 'bomb',
+  p: 'paper',
+  r: 'rock',
+  s: 'scissors',
 }
 
 export default {
-  name:  '!chop',
+  name: '!chop',
   regex: /!chop(?:\s+|$)(?<which>r(?:ock)?|p(?:aper)?|s(?:cissors)?|b(?:omb)?|.*?)(?:\W|$)/gi,
   handler(command) {
     this.regex.lastIndex = 0
@@ -39,10 +39,10 @@ export default {
   },
 
   chop: (yours, theirs) => ({
-    result:     yours === theirs ? '#draw' : SCENARIOS[yours][theirs],
+    result: yours === theirs ? '#draw' : SCENARIOS[yours][theirs],
     theirEmoji: EMOJIS[theirs],
     theirs,
-    yourEmoji:  EMOJIS[yours],
+    yourEmoji: EMOJIS[yours],
     yours,
   }),
 
