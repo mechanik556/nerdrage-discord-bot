@@ -50,6 +50,6 @@
 		"^.+\\.jsx?$": "babel-jest"
 	},
 	"testPathDirs": [
-		"<rootDir>/src"
+		"<rootDir>/source"
 	]
 }
