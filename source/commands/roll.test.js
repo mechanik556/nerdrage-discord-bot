@@ -1,4 +1,4 @@
-import roll from './dice'
+import roll from './roll'
 
 describe('!roll', () => {
   describe('interpret', () => {

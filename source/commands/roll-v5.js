@@ -1,4 +1,4 @@
-import dice from './dice'
+import dice from './roll'
 import wrapOutput from '../utilities/wrapOutput'
 
 const help = wrapOutput(`
