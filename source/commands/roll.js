@@ -3,7 +3,7 @@ import wrapOutput from '../utilities/wrapOutput'
 export default {
   name: '!roll',
   aliases: ['!dice'],
-  regex: /!(?:roll|dice)\s*(?<count>\d*)(d(?<sides>\d+))?(@(?<difficulty>\d+))?((?<explode>!+)(?<explodeAt>\d+)?)?/gi,
+  regex: /!(?:dice)\s*(?<count>\d*)(d(?<sides>\d+))?(@(?<difficulty>\d+))?((?<explode>!+)(?<explodeAt>\d+)?)?/gi,
   handler(command) {
     this.regex.lastIndex = 0
     const parts = this.regex.exec(command)
