@@ -24,24 +24,6 @@ export const SHORTHAND = {
   s:      'scissors',
 }
 
-export const chop = (yours, theirs) => ({
-  result:     yours === theirs ? '#draw' : SCENARIOS[yours][theirs],
-  theirEmoji: EMOJIS[theirs],
-  theirs,
-  yourEmoji:  EMOJIS[yours],
-  yours,
-})
-
-export const randomChop = () => VALID[Math.floor(Math.random() * 3) + 1]
-
-export const formatMessage = ({
-  yours, yourEmoji, theirs, theirEmoji, result,
-}) => [
-  '```css\n',
-  `Your #${yours} ${yourEmoji} vs. their #${theirs} ${theirEmoji} = you ${result}!`,
-  '\n```',
-].filter(Boolean).join('')
-
 export default {
   name:  '!chop',
   regex: /!chop(?:\s+|$)(?<which>r(?:ock)?|p(?:aper)?|s(?:cissors)?|b(?:omb)?|.*?)(?:\W|$)/gi,
@@ -51,8 +33,26 @@ export default {
     if (!parts) return undefined
 
     let which = (SHORTHAND[parts.groups.which] || parts.groups.which).toLowerCase()
-    if (!SCENARIOS[which]) which = randomChop()
+    if (!SCENARIOS[which]) which = this.randomChop()
 
-    return formatMessage(chop(which, randomChop()))
+    return this.formatMessage(this.chop(which, this.randomChop()))
   },
+
+  chop: (yours, theirs) => ({
+    result:     yours === theirs ? '#draw' : SCENARIOS[yours][theirs],
+    theirEmoji: EMOJIS[theirs],
+    theirs,
+    yourEmoji:  EMOJIS[yours],
+    yours,
+  }),
+
+  formatMessage: ({
+    yours, yourEmoji, theirs, theirEmoji, result,
+  }) => [
+    '```css\n',
+    `Your #${yours} ${yourEmoji} vs. their #${theirs} ${theirEmoji} = you ${result}!`,
+    '\n```',
+  ].filter(Boolean).join(''),
+
+  randomChop: () => VALID[Math.floor(Math.random() * 3) + 1],
 }
