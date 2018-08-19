@@ -10,8 +10,9 @@
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
     "import/no-unresolved": "off",
-    "key-spacing": ["error", { "align": "value" }],
+    "key-spacing": ["error", { "mode": "strict" }],
     "no-console": "off",
+    "operator-linebreak": "off",
     "semi": ["error", "never"],
 
     "react/jsx-filename-extension": ["off", { "extensions": [".js"] }],
