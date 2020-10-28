@@ -12,6 +12,13 @@ This is a simple Discord bot that contains simple commands for roleplaying via D
 | --- | --- |
 | `!roll` | Rolls a given # of dice, and allows for hunger dice. |
 
-### Examples
- - `!roll 5` rolls 5 10-sided dice, defaulting to 0 hunger
- - `!roll 4h2` rolls 4 10-sided dice, 2 of which are hunger dice
+### WoD Examples
+ - `!dice 5` rolls 5 10-sided dice at difficulty 8.
+ - `!dice 5@5` rolls 5 10-sided dice at difficulty 5.
+ 
+ ### V5 Examples
+ - `!roll-v5 4h2` rolls 4 10-sided dice, 2 of which are hunger dice.
+ 
+ ### Chronicles of Darkness Examples
+ - `!dice 5!!10` rolls 5 10-sided dice that explode on 10s.
+ - `!dice 5!!9` rolles 5 10-sided dice that explode on 9s.
