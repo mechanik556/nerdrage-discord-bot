@@ -16,10 +16,17 @@ export default {
       explode: parts.groups.explode || '',
       explodeAt: parseInt(parts.groups.explodeAt, 10) || undefined,
     }
-    if (!settings.difficulty) settings.difficulty = Math.round(settings.sides * 0.8)
+
+    // only set diff 8 if we're rolling chronicles of darkness style
+    if (settings.explode && !settings.difficulty) {
+      settings.difficulty = Math.round(settings.sides * 0.8)
+    }
+
+    // explode 10's by default if rolling CoD style
     if (settings.explode && settings.explodeAt === undefined) {
       settings.explodeAt = settings.sides
     }
+    
 
     const raw = [...new Array(settings.count)].map(() => this.roll(settings.sides))
 
