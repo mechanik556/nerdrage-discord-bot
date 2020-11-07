@@ -1,11 +1,13 @@
-# Discord Vampire: The Masquerade (V5) RPBot
+# Guilded Vampire: The Masquerade (V5) RPBot
 
-This is a simple Discord bot that contains simple commands for roleplaying via Discord.
+This is a simple Guilded bot that contains simple commands for roleplaying via Guilded.
+The bot will create a thread response to each command you give it, for easy tracking
+of which command led to which result.
 
 ## Install
 1. `git clone` this repository, and browse to it from the command line
 2. Run `yarn` to install `node_packages`
-3. Run `yarn start --token=YOUR_TOKEN_HERE`
+3. Run `yarn start --login=YOUR_LOGIN_NAME --password=YOUR_PASSWORD`
 
 ## Chat commands
 | Command | Description |

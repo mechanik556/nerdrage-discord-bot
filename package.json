@@ -1,17 +1,17 @@
 {
-	"name": "discord-nerdrage-bot",
+	"name": "guilded-nerdrage-bot",
 	"version": "0.0.1",
-	"description": "A Discord bot that rolls dice for the V5 system",
+	"description": "A Guilded bot that rolls dice for the V5 system",
 	"license": "MIT",
-	"author": "Troy Alford, Nerdrage",
-	"repository": "NerdrageTools/discord-nerdrage-bot",
+	"author": "Troy Alford, Nerdrage.  Guilded port by Chris Recoskie",
+	"repository": "mechanik556/nerdrage-discord-bot",
 	"bugs": {
 		"url": "https://github.com/NerdrageTools/discord-nerdrage-bot/issues"
 	},
 	"keywords": [
 		"bot",
 		"dice",
-		"discord",
+		"guilded",
 		"roleplaying",
 		"v5"
 	],
@@ -22,7 +22,7 @@
 	},
 	"dependencies": {
 		"chalk": "^2.4.1",
-		"discord.js": "^11.0.0",
+		"guilded.js": "^0.0.0",
 		"yargs": "^12.0.1"
 	},
 	"devDependencies": {
